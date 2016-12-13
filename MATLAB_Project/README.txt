@@ -1,0 +1,61 @@
+This README file explains how to run the code.
+
+All the filenames of images are changed to form an orderly sequence, therefore easier to be automatically read into workspace;
+All results are saved as .mat files. Demos can be run to obtain the same results and the saving of them;
+The paper that inspired me most is attached in this file, though it is written in Chinese and seems to miss the source to be porperly cited ;
+The helpful blog that provides a demostration is http://basic-eng.blogspot.se/search/label/matlab, telling me all I need to know about Hough Transform
+
+Demos
+
+    DemoLoop: 
+
+		Provide a direct demostration for the traditional loop method
+		Each image can run forhundreds or thousands of seconds, better use a workstation to test it
+
+    DemoMat: 
+		Provide a direct demostration for the matrix method
+		 Each image will only run for seconds or tens of seconds, so no need to run on workstation
+
+
+
+Main function
+
+	MainLoop: 
+		uses the traditional method proposed in the MatlabProject file
+		contains a lot of for loops, therefore can be extremely slow
+		more accurate than the matrix method
+		can handle larger radius range than the matrix method
+
+	MainMat:
+		uses a fast method proposed in an essay
+		uses multidimensional arrays instead of for loops to speed up
+		runs in seconds, instead of thousands of seconds for for loop ones
+
+Sub function
+
+	ReadImage:
+		Read RGB image and turn it into gray for future processing
+		the input can only be path or filename
+		no need to turn the result into double float, since imfilter is compatible to uint8
+
+	EdgeDetection: 
+		use Sobel filters to detect edge
+		choose a suitable threshold for both speed and accuracy
+
+	LoopHT:
+		use traditional Hough transform and a lot of for loops
+		threshold can be low compared with the matrix method
+
+	MatHT:
+		use a fast matrix method to speed up
+
+	DetectCircles:
+		use the detected centers and radii to draw circles on the original RGB image
+
+
+Pre-experiment
+
+	PreExperiment_Radius: 
+		uses MATLAB built-in function to detect the radii of all circles in a image, therefore narrow down the range and speed up computation. 
+		The range result is saved as .mat file and can be good reference for dealing with separate images
+		The function cannot detect anything for the 8th image, though there has to be some pre-processing method for this.
