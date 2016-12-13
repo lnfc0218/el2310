@@ -4,8 +4,7 @@ project for el2310, scientific programming, 2015
 ## MATLAB Project
  Coin detection in an image, implemented with edge detection and Hough transform
  
- ## C Project
+## C Project
  TODO
- 
- ## C++ Project
+## C++ Project
  TODO
