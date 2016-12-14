@@ -1,4 +1,4 @@
-# Explanations of the structure & How to run the code. 
+# Explanations of the structure & How to run the code
 
 ## Folders
 
