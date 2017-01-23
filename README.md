@@ -11,4 +11,4 @@ Learn more about the course during that year on [the lecturer's website](http://
  Visualize and zoom in the Mandelbrot Set
  
 ## C++ Project
- TODO
+ implement a world model for the Probabilistic Road Maps(PRM) algorithm to query if a certain point in space is free from obstacles
