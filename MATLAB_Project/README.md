@@ -2,6 +2,8 @@
 
 ## Folders
 
+Download test images, parameters and results from [this link](https://drive.google.com/file/d/0B1t_KfJyYfMScHI4QjU0bkdlN1E/view?usp=sharing)
+
 `./images`:
 - stores all the test images provided for this course;
 - images renamed for easier programming.
