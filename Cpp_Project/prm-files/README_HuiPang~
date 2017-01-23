@@ -1,0 +1,6 @@
+Files added by Hui Pang
+--------------------------
+README_HuiPang				: This file
+SingleRectangleWorld.hh[cc]	: Intermediate product for testing
+MyWorld.hh[cc]				: Read problem files, answer queries
+Obstacle.hh[cc]				: Base class for obstacles

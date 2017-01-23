@@ -1,0 +1,103 @@
+//
+// = FILENAME
+//    SingleRectangleWorld.cc
+//    
+// = AUTHOR(S)
+//    Hui Pang
+//
+/*----------------------------------------------------------------------*/
+
+#include "SingleRectangleWorld.hh"
+
+#include <string>
+#include <fstream>
+#include <iostream>
+#include <cmath>
+
+SingleRectangleWorld::SingleRectangleWorld()
+{
+
+	std::cout<<"You made it!"<<std::endl;
+
+	/*centerX=5;
+	centerY=5;
+	width=6;
+	height=6;
+	theta=0.2;*/
+}
+
+SingleRectangleWorld::~SingleRectangleWorld()
+{}
+
+
+bool
+SingleRectangleWorld::readObstacles(std::istream &fs)
+{
+
+  std::string shape;
+
+  double x,y,w,h,r,a;
+
+
+  while(!fs.eof())
+    {
+
+fs>>shape;
+
+
+
+
+      if("CIRCLE"==shape)
+	{//std::cout<<"circle";
+	  fs>>x>>y>>r;
+	  //std::cout<<x<<std::endl;
+	  //std::cout<<y<<std::endl;
+	  //std::cout<<r<<std::endl;
+	}
+      else if("RECTANGLE"==shape)
+	{//std::cout<<"rectangle";
+	  fs>>x>>y>>w>>h>>r;
+	this->centerX=x;
+	this->centerY=y;
+	this->width=w;
+	this->height=h;
+	this->theta=a;
+	  //std::cout<<x<<std::endl;
+	 //std::cout<<y<<std::endl;
+	  //std::cout<<w<<std::endl;
+	  //std::cout<<h<<std::endl;
+	  //std::cout<<a<<std::endl;
+	}
+	}
+//std::cout<<sizeof "rectangle"<<std::endl;
+std::cout<<"can use readObstacles!"<<std::endl;
+	return 1;
+
+}
+
+
+bool 
+SingleRectangleWorld::collidesWith(double x, double y)
+{
+	double dx=x-centerX;
+	double dy=y-centerY;
+
+	double ct=cos(theta);
+	double st=sin(theta);
+
+	x=ct*dx+st*dy;
+	y=-st*dx+ct*dy;
+
+	//std::cout<<"processing..."<<std::endl;
+
+	return((fabs(x)<=0.5*width)&&(fabs(y)<=0.5*height));
+}
+
+void 
+SingleRectangleWorld::writeMatlabDisplayCode(std::ostream &fs)
+{
+std::cout<<"start writing..."<<std::endl;
+
+	fs<<"X="<<width<<"*[-.5 .5 .5 -.5 -.5];"<<"Y="<<height<<"*[.5 .5 -.5 -.5 .5];P = [X;Y];"<<"ct = cos("<<theta<<");st = sin("<<theta<<");R = [ct -st;st ct];P = R * P;plot(P(1,:)+"<<centerX<<",P(2,:)+"<<centerY<<");"<<std::endl;
+}
+
